@@ -6,15 +6,16 @@
 ## Problem
 
 A mermaid graph embedded in an Rmarkdown document that is rendered via a
-targets workflow is erroring with the following message:
+`targets` workflow is erroring with the following message:
 
 ``` r
 argument "store" is missing, with no default
 ```
 
 This document used to render properly without issues at earlier stages
-of project but after a few months and a few `targets` versions later,
-the error above was encountered.
+of project but after a few months and a few `targets` versions later
+(started at v1.1.3 and currently at v1.3.2), the error above was
+encountered.
 
 Hence the suspicion that maybe `targets` version was the culprit more so
 that there is [discussion
@@ -57,3 +58,8 @@ and then ran the workflow.
 
 Workflow completed without errors and HTML output in `reports` directory
 was produced as expected.
+
+Finally, we tested using `targets` version 1.1.3 which is the version
+used at the start of the project. After installing this version and
+running the workflow, we completed the and rendered the document without
+errors/issues.
