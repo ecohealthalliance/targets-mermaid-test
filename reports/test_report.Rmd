@@ -1,0 +1,45 @@
+---
+title: Test for Targets Version and Mermaid Graphs
+output: 
+  rmarkdown::html_document:
+    keep_md: true
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+<noscript>
+
+```{=html}
+<style>
+ .withscript {display:none;}
+</style>
+```
+</noscript>
+
+[This diagram shows all the components of the workflow for the livestock model:]{.withscript}
+
+```{r mermaid, eval = TRUE, echo = FALSE, message = FALSE, warning = FALSE, results = "asis"}
+mer <- targets::tar_mermaid()
+
+cat(
+  '```{=html}',
+  '<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>',
+  '<script>mermaid.initialize({startOnLoad:true});</script>',
+  '<style>.classLabel.label {}</style>',
+  '<div class="mermaid withscript" style="width:130%;transform: translateX(-15%);">',
+  mer[1], 
+  #'Objects([""Objects""]) --- Functions>""Functions""]',
+  'subgraph identifier[" "]',
+  mer[5:length(mer)],
+  'classDef default font-size:25px;',
+  '</div>',
+  '```',
+  sep = "\n"
+)
+```
+
