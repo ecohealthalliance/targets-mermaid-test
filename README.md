@@ -9,17 +9,19 @@ A mermaid graph embedded in an Rmarkdown document that is rendered via a
 targets workflow is erroring with the following message:
 
 ``` r
-`store` required but no default
+argument "store" is missing, with no default
 ```
 
 This document used to render properly without issues at earlier stages
-of project but after a few months and a few targets versions later, the
-error above was encountered.
+of project but after a few months and a few `targets` versions later,
+the error above was encountered.
 
 Hence the suspicion that maybe `targets` version was the culprit more so
-that there is discussion online that a specific version of `targets` has
-had some major bugs with regard to mermaid graph rendering within
-Rmarkdown documents.
+that there is [discussion
+online](https://github.com/ropensci/targets/pull/802#issuecomment-1071142712)
+that the initial version of `targets` that introduces the
+`tar_mermaid()` functionality has had some major bugs with regard to
+mermaid graph rendering within Rmarkdown documents.
 
 ## Test
 
